@@ -14,7 +14,7 @@ loop do
 
     begin
       ocr_result = Http.get(ENV["WORKER_URL"], {}, { "url" => task.movie_url })
-    rescue Net::HTTPServerException => e
+    rescue Net::HTTPClientException => e
       # 404 Not Foundなど
       task.status = "error"
       task.finished_at = Time.now
