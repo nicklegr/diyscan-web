@@ -24,6 +24,7 @@ services:
     command: bundle exec ruby process_task.rb
     environment:
       WORKER_URL: "http://diyscan-worker_main_1:5000"
+      WEB_BASE_URL: "https://diyscan.airytail.co"
     networks:
       - default
       - diyscan

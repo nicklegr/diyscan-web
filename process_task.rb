@@ -1,5 +1,7 @@
 # coding: utf-8
 
+require 'twitter'
+require_relative 'common'
 require_relative 'db'
 require_relative 'http'
 
@@ -42,6 +44,10 @@ loop do
         movie_url: task.movie_url,
         ocr_result: task.ocr_result,
         )
+
+      reply_message = "@#{task.twitter_screen_name} 認識が終わりました！ #{ENV["WEB_BASE_URL"]}/result/#{result_key}"
+      client = twitter_client
+      client.update(reply_message, in_reply_to_status_id: task.twitter_status_id)
 
       puts "done: key: #{result_key}"
     end

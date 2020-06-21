@@ -1,21 +1,10 @@
 # coding: utf-8
 
 require 'pp'
-require 'yaml'
 require 'securerandom'
 require 'twitter'
+require_relative 'common'
 require_relative 'db'
-
-def twitter_client
-  yaml = YAML.load_file('config.yaml')
-  client = Twitter::REST::Client.new do |config|
-    config.consumer_key = yaml['consumer_key']
-    config.consumer_secret = yaml['consumer_secret']
-    config.access_token = yaml['oauth_token']
-    config.access_token_secret = yaml['oauth_token_secret']
-  end
-  client
-end
 
 client = twitter_client
 
