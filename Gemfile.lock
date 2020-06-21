@@ -9,7 +9,6 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    backports (3.17.2)
     bson (4.9.2)
     clockwork (2.0.4)
       activesupport
@@ -33,7 +32,6 @@ GEM
     mongoid (7.1.2)
       activemodel (>= 5.1, < 6.1)
       mongo (>= 2.7.0, < 3.0.0)
-    multi_json (1.14.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     pry (0.12.2)
@@ -50,15 +48,6 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
-    sinatra-contrib (2.0.8.1)
-      backports (>= 2.8.2)
-      multi_json
-      mustermann (~> 1.0)
-      rack-protection (= 2.0.8.1)
-      sinatra (= 2.0.8.1)
-      tilt (~> 2.0)
-    sinatra-reloader (1.0)
-      sinatra-contrib
     temple (0.8.2)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
@@ -82,7 +71,6 @@ DEPENDENCIES
   pry
   pry-nav
   sinatra
-  sinatra-reloader
   thin
 
 BUNDLED WITH

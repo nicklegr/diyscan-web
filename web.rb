@@ -3,7 +3,6 @@
 require 'pp'
 require 'json'
 require 'sinatra'
-require 'sinatra/reloader'
 require 'sinatra/url_for'
 require 'haml'
 require_relative 'db'

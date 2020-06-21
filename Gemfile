@@ -5,7 +5,6 @@ gem 'pry-nav'
 
 gem 'mongoid'
 gem 'sinatra'
-gem 'sinatra-reloader'
 gem 'emk-sinatra-url-for'
 gem 'thin'
 gem 'haml'
