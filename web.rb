@@ -13,7 +13,7 @@ get '/' do
 end
 
 get '/result/:key' do
-  result = Results.where(key: params[:key]).first
+  result = Result.where(key: params[:key]).first
   if result
     parser = ResultParser.new
 

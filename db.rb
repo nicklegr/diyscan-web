@@ -1,6 +1,6 @@
 require "mongoid"
 
-class Results
+class Result
   include Mongoid::Document
   include Mongoid::Timestamps
 
@@ -17,4 +17,4 @@ end
 
 Mongoid.load!("mongoid.yml", :production)
 
-Results.create_indexes
+Result.create_indexes
