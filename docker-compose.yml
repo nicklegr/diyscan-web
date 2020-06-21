@@ -11,6 +11,13 @@ services:
       - default
       - nginx-proxy
 
+  crawl_mention:
+    build: .
+    restart: unless-stopped
+    command: bundle exec ruby crawl_mention.rb
+    networks:
+      - default
+
   mongodb:
     image: mongo:3.4.24
     command: mongod

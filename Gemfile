@@ -11,3 +11,4 @@ gem 'haml'
 
 gem 'clockwork'
 gem 'damerau-levenshtein'
+gem 'twitter'
