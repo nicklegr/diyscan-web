@@ -21,6 +21,10 @@ loop do
       task.error_message = e.message
       task.save!
       puts "error: #{e.message}"
+    rescue SocketError => e
+      task.status = "waiting"
+      task.save!
+      puts "worker error: #{e.message}"
     else
       # 成功
       task.status = "done"
