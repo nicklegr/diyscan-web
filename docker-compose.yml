@@ -7,6 +7,11 @@ services:
      - "80:80"
     restart: unless-stopped
     command: bundle exec rackup -o 0.0.0.0 -p 80
+    environment:
+      VIRTUAL_HOST: diyscan.airytail.co
+      LETSENCRYPT_HOST: diyscan.airytail.co
+      LETSENCRYPT_EMAIL: 
+      # LETSENCRYPT_TEST: "true"
     networks:
       - default
       - nginx-proxy
