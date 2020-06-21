@@ -43,11 +43,13 @@ class ResultParser
 
   def parse(json)
     data = JSON.parse(json)
+
+    # 連続で認識できたフレーム区間に分割
     list = data.chunk{|e| e["detected"]}.map do |detected, frames|
       if detected
         frames.map do |e|
           clean_str = cleanup_str(e["text"])
-          puts "#{clean_str} -> #{nearest_recipe_name(clean_str)}"
+          # puts "#{clean_str} -> #{nearest_recipe_name(clean_str)}"
 
           nearest_recipe_name(clean_str)
         end
@@ -55,8 +57,19 @@ class ResultParser
         nil
       end
     end
+    list.compact!
 
-    list
+    # 各区間で多数決
+    result = list.map do |cand_list|
+      valid_list = cand_list.compact
+      if valid_list.size >= 1
+        valid_list.group_by{|e| e}.max_by{|k, v| v.size}[0]
+      else
+        nil
+      end
+    end
+
+    result.compact
   end
 
   private
