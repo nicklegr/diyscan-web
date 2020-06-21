@@ -22,6 +22,9 @@ client = twitter_client
 loop do
   # 最新200件のメンションを取得
   option = { count: 200, tweet_mode: "extended" }
+
+  # Requests / 15-min window (user auth): 75
+  # single developer app can make up to 100,000 calls during any single 24-hour period.
   client.mentions_timeline(option).each do |tweet|
     # puts "mention: from #{tweet.user.id} (@#{tweet.user.screen_name}): #{tweet.text[0...30]}"
     # pp tweet.to_hash
