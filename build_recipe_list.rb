@@ -106,5 +106,7 @@ class ResultParser
   end
 end
 
-parser = ResultParser.new
-pp parser.parse(File.read("test.json"))
+if $0 == __FILE__
+  parser = ResultParser.new
+  pp parser.parse(File.read("test.json"))
+end
