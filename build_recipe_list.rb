@@ -69,7 +69,7 @@ class ResultParser
       end
     end
 
-    result.compact
+    result.compact.uniq.sort
   end
 
   private
