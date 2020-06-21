@@ -1,6 +1,6 @@
 require "net/https"
 
-class Http
+class MyHttp
   def self.get(url, header, params = {})
     uri = URI(url)
     uri.query = URI.encode_www_form(params)

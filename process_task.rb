@@ -13,7 +13,7 @@ loop do
     task.save!
 
     begin
-      ocr_result = Http.get(ENV["WORKER_URL"], {}, { "url" => task.movie_url })
+      ocr_result = MyHttp.get(ENV["WORKER_URL"], {}, { "url" => task.movie_url })
     rescue Net::HTTPClientException => e
       # 404 Not Foundなど
       task.status = "error"
