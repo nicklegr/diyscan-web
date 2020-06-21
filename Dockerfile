@@ -1,7 +1,7 @@
 FROM ruby:2.7.1
 
-RUN echo "Asia/Tokyo" > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
+ENV TZ Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
