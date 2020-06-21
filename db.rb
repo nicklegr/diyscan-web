@@ -20,12 +20,13 @@ class Task
   include Mongoid::Timestamps
 
   field :job_id, type: String
-  field :status, type: String # waiting, processing, done
+  field :status, type: String # waiting, processing, done, error
   field :requested_at, type: Time
   field :finished_at, type: Time
 
   field :movie_url, type: String
   field :ocr_result, type: String
+  field :error_message, type: String
 
   field :twitter_user_id, type: Integer
   field :twitter_screen_name, type: String
