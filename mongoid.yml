@@ -1,0 +1,6 @@
+production:
+  clients:
+    default:
+      database: main
+      hosts:
+        - mongodb:27017
