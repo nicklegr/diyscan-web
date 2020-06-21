@@ -31,7 +31,19 @@ loop do
       task.finished_at = Time.now
       task.ocr_result = ocr_result
       task.save!
-      puts "done"
+
+      result_key = SecureRandom.urlsafe_base64(8)
+      Result.create!(
+        key: result_key,
+        twitter_user_id: task.twitter_user_id,
+        twitter_screen_name: task.twitter_screen_name,
+        twitter_status_id: task.twitter_status_id,
+        twitter_raw_tweet: task.twitter_raw_tweet,
+        movie_url: task.movie_url,
+        ocr_result: task.ocr_result,
+        )
+
+      puts "done: key: #{result_key}"
     end
 
     STDOUT.flush
