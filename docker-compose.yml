@@ -18,6 +18,16 @@ services:
     networks:
       - default
 
+  process_task:
+    build: .
+    restart: on-failure
+    command: bundle exec ruby process_task.rb
+    environment:
+      WORKER_URL: "http://diyscan-worker_main_1:5000"
+    networks:
+      - default
+      - diyscan
+
   mongodb:
     image: mongo:3.4.24
     command: mongod
@@ -31,5 +41,7 @@ volumes:
   mongodb:
 
 networks:
+  diyscan:
+    external: true
   nginx-proxy:
     external: true
