@@ -34,7 +34,7 @@ class Task
 
   index({ twitter_status_id: 1 }, { unique: true, name: "twitter_status_id_index" })
   index({ status: 1 }, { name: "status_index" })
-  index({ request_time: 1 }, { name: "request_time_index" })
+  index({ requested_at: 1 }, { name: "requested_at_index" })
 end
 
 Mongoid.load!("mongoid.yml", :production)
